@@ -1,10 +1,25 @@
-  <!DOCTYPE html>
-  <html lang="sk">
-  <head>
-    <meta charset="UTF-8">
-    <title>Parlamentné stretnutie</title>
-  </head>
-  <body>
-    <h1>Vitaj na stránke parlamentného stretnutia</h1>
-  </body>
-  </html>
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Parlamentné stretnutie</title>
+</head>
+<body>
+  <h1>Vitaj na stránke parlamentného stretnutia</h1>
+  <p id="info">Načítavam údaje...</p>
+
+  <script>
+    fetch('stretnutie.json')
+      .then(response => response.json())
+      .then(data => {
+        const { datum, cas, miesto } = data;
+        document.getElementById('info').textContent =
+          `Najbližšie stretnutie parlamentu: ${datum}, ${cas}, ${miesto}`;
+      })
+      .catch(error => {
+        document.getElementById('info').textContent = 'Nepodarilo sa načítať dáta.';
+        console.error(error);
+      });
+  </script>
+</body>
+</html>
