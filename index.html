@@ -2,24 +2,39 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <title>Parlamentné stretnutie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stretnutie parlamentu</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: sans-serif;
+      background-color: white;
+    }
+    #parlament-info {
+      text-align: center;
+      font-size: 80px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Vitaj na stránke parlamentného stretnutia</h1>
-  <p id="info">Načítavam údaje...</p>
+  <div id="parlament-info">Načítavam...</div>
 
   <script>
-    fetch('stretnutie.json')
+    fetch("stretnutie.json")
       .then(response => response.json())
       .then(data => {
-        const { datum, cas, miesto } = data;
-        document.getElementById('info').textContent =
-          `Najbližšie stretnutie parlamentu: ${datum}, ${cas}, ${miesto}`;
+        const el = document.getElementById("parlament-info");
+        el.innerText = `${data.datum}, ${data.cas}, ${data.miesto}`;
       })
       .catch(error => {
-        document.getElementById('info').textContent = 'Nepodarilo sa načítať dáta.';
-        console.error(error);
+        document.getElementById("parlament-info").innerText = "";
+        console.error("Chyba pri načítaní JSON:", error);
       });
   </script>
 </body>
 </html>
+
