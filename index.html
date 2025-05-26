@@ -9,27 +9,29 @@
       margin: 0;
       padding: 0;
       background: transparent;
-      color: white; /* alebo #ccc pre svetlý text na tmavom pozadí */
+      color: white;
       font-size: 80px;
       text-align: center;
-      font-family: sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="parlament-info">Načítavam...</div>
+  <div id="parlament-info"></div>
 
   <script>
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
       .then(response => response.json())
       .then(data => {
         const el = document.getElementById("parlament-info");
-        el.innerText = ${data.datum}, ${data.cas}, ${data.miesto};
+        el.innerText = `${data.miesto}, ${data.datum}, ${data.cas}`;
       })
       .catch(error => {
-        document.getElementById("parlament-info").innerText = "Nepodarilo sa načítať údaje.";
+        // Nezobrazujeme chybu, iba mlčky zlyhá
         console.error("Chyba pri načítaní JSON:", error);
       });
   </script>
 </body>
 </html>
+
