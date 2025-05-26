@@ -17,7 +17,7 @@
       color: white;
     }
     #output {
-      font-size: 80px;
+      font-size: 60px;
       text-align: center;
     }
   </style>
@@ -27,9 +27,9 @@
 
   <script>
     fetch("https://dianeckaa.github.io/parlament-datum/stretnutie.json")
-      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON"))
+      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON")))
       .then(data => {
-        if (data.miesto && data.datum && data.cas) {
+        if (data.datum && data.cas && data.miesto) {
           document.getElementById("output").innerText =
             `${data.datum} ${data.cas} ${data.miesto}`;
         } else {
