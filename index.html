@@ -10,7 +10,7 @@
       padding: 0;
       background: transparent;
       color: white;
-      font-size: 80px;
+      font-size: 60px;
       text-align: center;
       font-family: 'Poppins', sans-serif;
     }
@@ -28,7 +28,6 @@
         el.innerText = `${data.miesto}, ${data.datum}, ${data.cas}`;
       })
       .catch(error => {
-        // Nezobrazujeme chybu, iba mlčky zlyhá
         console.error("Chyba pri načítaní JSON:", error);
       });
   </script>
