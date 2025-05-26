@@ -13,18 +13,18 @@
       color: white;
       font-family: sans-serif;
       display: flex;
-      justify-content: center; /* horizontálne na stred */
-      align-items: center;     /* vertikálne na stred */
+      justify-content: center; /* horizontálne centrovanie */
+      align-items: center;     /* vertikálne centrovanie */
     }
 
-    #parlament-info {
+    .datum {
       font-size: 80px;
       text-align: center;
     }
   </style>
 </head>
 <body>
-  <div id="parlament-info">Načítavam...</div>
+  <div class="datum" id="parlament-info">Načítavam...</div>
 
   <script>
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
