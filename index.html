@@ -17,6 +17,7 @@
       color: white;
     }
     #output {
+      font-size: 80px;
       font-size: 60px;
       text-align: center;
     }
@@ -26,23 +27,21 @@
   <div id="output">Načítavam...</div>
 
   <script>
-    fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
-      .then(response => {
-        if (!response.ok) throw new Error("Chyba pri načítaní");
-        return response.json();
-      })
+    fetch("https://dianeckaa.github.io/parlament-datum/stretnutie.json")
+      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON"))
+      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON")))
       .then(data => {
-        const output = document.getElementById("output");
-
+        if (data.miesto && data.datum && data.cas) {
         if (data.datum && data.cas && data.miesto) {
-          output.innerText = `${data.datum} ${data.cas} ${data.miesto}`;
+          document.getElementById("output").innerText =
+            `${data.datum} ${data.cas} ${data.miesto}`;
         } else {
-          output.innerText = "Neúplné údaje.";
+          document.getElementById("output").innerText = "Neúplné údaje.";
         }
       })
       .catch(error => {
         document.getElementById("output").innerText = "Nepodarilo sa načítať údaje.";
-        console.error("Chyba pri načítaní JSON:", error);
+        console.error(error);
       });
   </script>
 </body>
