@@ -6,21 +6,20 @@
   <title>Parlamentné stretnutie</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
+      height: 100%;
       background: #1a1a1a;
       color: white;
       font-family: sans-serif;
       display: flex;
-      justify-content: center; /* horizontálne centrovanie */
-      align-items: center;     /* vertikálne centrovanie */
-      text-align: center;
+      justify-content: center;
+      align-items: center;
     }
 
     #parlament-info {
       font-size: 80px;
-      line-height: 1.2;
+      text-align: center;
     }
   </style>
 </head>
@@ -31,11 +30,12 @@
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
       .then(response => response.json())
       .then(data => {
-        const el = document.getElementById("parlament-info");
-        el.innerText = `${data.datum}, ${data.cas}, ${data.miesto}`;
+        document.getElementById("parlament-info").innerText =
+          `${data.datum}, ${data.cas}, ${data.miesto}`;
       })
       .catch(error => {
-        document.getElementById("parlament-info").innerText = "Nepodarilo sa načítať údaje.";
+        document.getElementById("parlament-info").innerText =
+          "Nepodarilo sa načítať údaje.";
         console.error("Chyba pri načítaní JSON:", error);
       });
   </script>
