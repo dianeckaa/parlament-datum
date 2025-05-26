@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stretnutie</title>
+  <title>Parlamentné stretnutie</title>
   <style>
     html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      height: 100%;
-      background: #1a1a1a;
+      background: transparent;
       color: white;
+      font-size: 80px;
       font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    #parlament-info {
-      font-size: 80px;
+    body {
+      display: flex;
+      justify-content: center; /* horizontálne centrovanie */
+      align-items: center;     /* vertikálne centrovanie */
       text-align: center;
     }
   </style>
@@ -30,15 +30,13 @@
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
       .then(response => response.json())
       .then(data => {
-        document.getElementById("parlament-info").innerText =
-          `${data.datum}, ${data.cas}, ${data.miesto}`;
+        const el = document.getElementById("parlament-info");
+        el.innerText = ${data.datum}, ${data.cas}, ${data.miesto};
       })
       .catch(error => {
-        document.getElementById("parlament-info").innerText =
-          "Nepodarilo sa načítať údaje.";
+        document.getElementById("parlament-info").innerText = "Nepodarilo sa načítať údaje.";
         console.error("Chyba pri načítaní JSON:", error);
       });
   </script>
 </body>
 </html>
-
