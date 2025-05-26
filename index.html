@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stretnutie</title>
   <style>
     html, body {
       margin: 0;
@@ -12,18 +13,18 @@
       color: white;
       font-family: sans-serif;
       display: flex;
-      justify-content: center; /* horizontálne centrovanie */
-      align-items: center;     /* vertikálne centrovanie */
+      justify-content: center;
+      align-items: center;
     }
 
-    .datum {
+    #parlament-info {
       font-size: 80px;
       text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="datum" id="parlament-info">Načítavam...</div>
+  <div id="parlament-info">Načítavam...</div>
 
   <script>
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
@@ -40,3 +41,4 @@
   </script>
 </body>
 </html>
+
