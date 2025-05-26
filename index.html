@@ -6,30 +6,42 @@
   <title>Parlamentné stretnutie</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
       background: #1a1a1a;
       color: white;
       font-family: sans-serif;
+      height: 100%;
     }
 
-    .center-wrapper {
+    .container {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100%;
-      width: 100%;
+      justify-content: flex-start;
       text-align: center;
+      padding-top: 80px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0 60px;
     }
 
     #parlament-info {
       font-size: 80px;
-      line-height: 1.2;
     }
   </style>
 </head>
 <body>
-  <div class="center-wrapper">
+  <div class="container">
+    <h1>Stretnutia parlamentu</h1>
+    <p>Najbližšie stretnutie parlamentu: dátum, čas, miesto</p>
     <div id="parlament-info">Načítavam...</div>
   </div>
 
@@ -48,3 +60,4 @@
   </script>
 </body>
 </html>
+
