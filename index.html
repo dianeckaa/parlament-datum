@@ -12,39 +12,19 @@
       background: #1a1a1a;
       color: white;
       font-family: sans-serif;
-    }
-
-    .container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100%;
-      text-align: center;
-      padding-top: 80px;
+      justify-content: center; /* horizontálne na stred */
+      align-items: center;     /* vertikálne na stred */
     }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      margin-bottom: 60px;
-    }
-
-    .date {
+    #parlament-info {
       font-size: 80px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Stretnutia parlamentu</h1>
-    <div class="subtitle">Najbližšie stretnutie parlamentu: dátum, čas, miesto</div>
-    <div id="parlament-info" class="date">Načítavam...</div>
-  </div>
+  <div id="parlament-info">Načítavam...</div>
 
   <script>
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
@@ -61,4 +41,3 @@
   </script>
 </body>
 </html>
-
