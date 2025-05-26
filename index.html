@@ -17,32 +17,28 @@
       color: white;
     }
     #output {
-      font-size: 80px;
       font-size: 60px;
       text-align: center;
     }
   </style>
 </head>
 <body>
-
-  <script>
-    fetch("https://dianeckaa.github.io/parlament-datum/stretnutie.json")
-      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON"))
-      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON")))
-      .then(data => {
-        if (data.miesto && data.datum && data.cas) {
-        if (data.datum && data.cas && data.miesto) {
-          document.getElementById("output").innerText =
-            `${data.datum} ${data.cas} ${data.miesto}`;
-        } else {
-          document.getElementById("output").innerText = "Neúplné údaje.";
-        }
-      })
-      .catch(error => {
-        document.getElementById("output").innerText = "Nepodarilo sa načítať údaje.";
-        console.error(error);
-      });
-  </script>
+  <div id="output">Načítavam...</div>
+<script>
+ fetch("https://dianeckaa.github.io/parlament-datum/stretnutie.json")
+ .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON")))
+ .then(data => {
+ if (data.datum && data.cas && data.miesto) {
+ document.getElementById("output").innerText =
+ `${data.datum} ${data.cas} ${data.miesto}`;
+ } else {
+ document.getElementById("output").innerText = "Neúplné údaje.";
+ }
+ })
+ .catch(error => {
+ document.getElementById("output").innerText = "Nepodarilo sa načítať údaje.";
+ console.error(error);
+ });
+ </script>
 </body>
 </html>
-
