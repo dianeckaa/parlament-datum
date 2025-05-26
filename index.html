@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Parlamentné stretnutie</title>
-
-  <!-- GOOGLE FONT (zmeň názov ak používaš iný) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -22,9 +19,8 @@
 </head>
 <body>
   <div id="parlament-info">Načítavam...</div>
-
   <script>
-    fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
+    fetch("stretnutie.json")
       .then(response => response.json())
       .then(data => {
         const el = document.getElementById("parlament-info");
@@ -37,3 +33,4 @@
   </script>
 </body>
 </html>
+
