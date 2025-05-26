@@ -27,7 +27,7 @@
 
   <script>
     fetch("https://dianeckaa.github.io/parlament-datum/stretnutie.json")
-      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON")))
+      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON"))
       .then(data => {
         if (data.datum && data.cas && data.miesto) {
           document.getElementById("output").innerText =
