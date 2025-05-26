@@ -2,21 +2,18 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Parlamentné stretnutie</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: #222;
       font-family: 'Poppins', sans-serif;
       color: white;
       font-size: 60px;
       text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: flex; justify-content: center; align-items: center;
       height: 100vh;
     }
   </style>
@@ -24,11 +21,20 @@
 <body>
   <div id="parlament-info">Načítavam...</div>
 
-  <!-- Načíta údaje zo súboru stretnutie.js -->
-  <script src="stretnutie.js"></script>
   <script>
-    document.getElementById("parlament-info").innerText =
-      `${data.datum}, ${data.cas}, ${data.miesto}`;
+    fetch('stretnutie.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Sieťová odpoveď nebola v poriadku');
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('parlament-info').innerText =
+          `${data.datum}, ${data.cas}, ${data.miesto}`;
+      })
+      .catch(error => {
+        document.getElementById('parlament-info').innerText = 'Nepodarilo sa načítať údaje.';
+        console.error('Chyba pri načítaní JSON:', error);
+      });
   </script>
 </body>
 </html>
