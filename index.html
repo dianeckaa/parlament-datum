@@ -8,10 +8,10 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       background: #1a1a1a;
       color: white;
       font-family: sans-serif;
-      height: 100%;
     }
 
     .container {
@@ -19,21 +19,22 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      height: 100%;
       text-align: center;
       padding-top: 80px;
     }
 
     h1 {
-      font-size: 40px;
-      margin: 0;
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
-    p {
+    .subtitle {
       font-size: 18px;
-      margin: 10px 0 60px;
+      margin-bottom: 60px;
     }
 
-    #parlament-info {
+    .date {
       font-size: 80px;
     }
   </style>
@@ -41,8 +42,8 @@
 <body>
   <div class="container">
     <h1>Stretnutia parlamentu</h1>
-    <p>Najbližšie stretnutie parlamentu: dátum, čas, miesto</p>
-    <div id="parlament-info">Načítavam...</div>
+    <div class="subtitle">Najbližšie stretnutie parlamentu: dátum, čas, miesto</div>
+    <div id="parlament-info" class="date">Načítavam...</div>
   </div>
 
   <script>
