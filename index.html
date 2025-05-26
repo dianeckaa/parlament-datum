@@ -4,33 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Parlamentné stretnutie</title>
+
+  <!-- GOOGLE FONT (zmeň názov ak používaš iný) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       padding: 0;
       background: transparent;
-      color: white;
-      font-size: 60px;
-      text-align: center;
       font-family: 'Poppins', sans-serif;
+      color: white;
+      font-size: 80px;
+      text-align: center;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="parlament-info"></div>
+  <div id="parlament-info">Načítavam...</div>
 
   <script>
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
       .then(response => response.json())
       .then(data => {
         const el = document.getElementById("parlament-info");
-        el.innerText = `${data.miesto}, ${data.datum}, ${data.cas}`;
+        el.innerText = `${data.datum}, ${data.cas}, ${data.miesto}`;
       })
       .catch(error => {
+        document.getElementById("parlament-info").innerText = "Nepodarilo sa načítať údaje.";
         console.error("Chyba pri načítaní JSON:", error);
       });
   </script>
 </body>
 </html>
-
