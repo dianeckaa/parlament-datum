@@ -14,7 +14,7 @@
       height: 100vh;
       margin: 0;
       background-color: transparent;
-      color: #333;
+      color: white;
     }
     #output {
       font-size: 80px;
@@ -23,16 +23,22 @@
   </style>
 </head>
 <body>
-  <div id="output"></div>
+  <div id="output">Načítavam...</div>
 
   <script>
     fetch("https://dianeckaa.github.io/parlament-datum/stretnutie.json")
-      .then(response => response.ok ? response.json() : null)
+      .then(response => response.ok ? response.json() : Promise.reject("Chyba pri načítaní JSON"))
       .then(data => {
-        if (data) {
+        if (data.miesto && data.datum && data.cas) {
           document.getElementById("output").innerText =
-            `${data.miestnost} ${data.datum} ${data.cas}`;
+            `${data.datum} ${data.cas} ${data.miesto}`;
+        } else {
+          document.getElementById("output").innerText = "Neúplné údaje.";
         }
+      })
+      .catch(error => {
+        document.getElementById("output").innerText = "Nepodarilo sa načítať údaje.";
+        console.error(error);
       });
   </script>
 </body>
