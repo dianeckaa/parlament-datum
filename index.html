@@ -24,7 +24,7 @@
       .then(response => response.json())
       .then(data => {
         const el = document.getElementById("parlament-info");
-        el.innerText = ${data.datum}, ${data.cas}, ${data.miesto};
+        el.innerText = `${data.datum}, ${data.cas}, ${data.miesto}`;
       })
       .catch(error => {
         document.getElementById("parlament-info").innerText = "Nepodarilo sa načítať údaje.";
