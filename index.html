@@ -6,25 +6,32 @@
   <title>Parlamentné stretnutie</title>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
+      margin: 0;
       background: #1a1a1a;
       color: white;
       font-family: sans-serif;
+    }
+
+    .center-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100%;
+      width: 100%;
+      text-align: center;
     }
 
     #parlament-info {
       font-size: 80px;
-      text-align: center;
+      line-height: 1.2;
     }
   </style>
 </head>
 <body>
-  <div id="parlament-info">Načítavam...</div>
+  <div class="center-wrapper">
+    <div id="parlament-info">Načítavam...</div>
+  </div>
 
   <script>
     fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
