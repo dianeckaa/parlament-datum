@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parlamentné stretnutie</title>
+  <title>Parlament dátum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: transparent;
-      color: white; /* alebo #ccc pre svetlý text na tmavom pozadí */
-      font-size: 80px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 50px;
       text-align: center;
-      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: transparent;
     }
   </style>
 </head>
 <body>
-  <div id="parlament-info">Načítavam...</div>
+  <!-- Príklad zobrazenia dátumu z JSON -->
+  <div id="data"></div>
 
   <script>
-    fetch("https://raw.githubusercontent.com/dianeckaa/parlament-datum/main/stretnutie.json")
+    fetch('stretnutie.json')
       .then(response => response.json())
       .then(data => {
-        const el = document.getElementById("parlament-info");
-        el.innerText = `${data.datum}, ${data.cas}, ${data.miesto}`;
+        const datum = data.datum || '';
+        const cas = data.cas || '';
+        const miesto = data.miesto || '';
+        document.getElementById('data').textContent = `${datum} ${cas} ${miesto}`.trim();
       })
       .catch(error => {
-        document.getElementById("parlament-info").innerText = "Nepodarilo sa načítať údaje.";
-        console.error("Chyba pri načítaní JSON:", error);
+        document.getElementById('data').textContent = '';
       });
   </script>
 </body>
 </html>
-
