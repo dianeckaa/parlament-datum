@@ -24,19 +24,11 @@
 <body>
   <div id="parlament-info">Načítavam...</div>
 
+  <!-- Načíta údaje zo súboru stretnutie.js -->
+  <script src="stretnutie.js"></script>
   <script>
-    fetch("stretnutie.json")
-      .then(response => {
-        if (!response.ok) throw new Error("Sieťová odpoveď nebola v poriadku");
-        return response.json();
-      })
-      .then(data => {
-        document.getElementById("parlament-info").innerText = `${data.datum}, ${data.cas}, ${data.miesto}`;
-      })
-      .catch(error => {
-        document.getElementById("parlament-info").innerText = "Nepodarilo sa načítať údaje.";
-        console.error("Chyba pri načítaní JSON:", error);
-      });
+    document.getElementById("parlament-info").innerText =
+      `${data.datum}, ${data.cas}, ${data.miesto}`;
   </script>
 </body>
 </html>
